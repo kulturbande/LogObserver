@@ -1,0 +1,30 @@
+{
+  "name": "LogObserver",
+  "version": "0.0.1",
+  "description": "Observe and analyse logs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kulturbande/LogObserver.git"
+  },
+  "keywords": [
+    "log"
+  ],
+  "author": "Sascha Karnatz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kulturbande/LogObserver/issues"
+  },
+  "homepage": "https://github.com/kulturbande/LogObserver",
+  "dependencies": {
+    "express": "^4.10.6",
+    "socket.io": "^1.2.1",
+    "tail": "^0.4.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
