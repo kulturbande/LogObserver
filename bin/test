@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-./node_modules/mocha/bin/mocha tests/config.js tests/controllers/*.js --growl
