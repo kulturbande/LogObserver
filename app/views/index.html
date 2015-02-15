@@ -5,5 +5,12 @@
 </head>
 <body>
 	<h1>Test</h1>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	  	var socket = io();
+		socket.on('log', function(message) {
+			console.log(message);
+		});
+	</script>
 </body>
 </html>

@@ -18,6 +18,6 @@ app.set('view engine', 'ejs');
 
 // Routes
 require('./app/routes')(app);
-require('./app/services/observer')();
+require('./app/services/observer')(io);
 
 http.listen(app.get('port'));

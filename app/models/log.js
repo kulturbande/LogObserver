@@ -7,7 +7,7 @@ var Log = (function() {
 
 	function Log(message) {
 		this.date = new Date();
-		this.message = message;
+		this.message = message || '';
 
 		return this;
 	}
