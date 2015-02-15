@@ -1,4 +1,4 @@
-
+var Log = require('../models/log');
 var logsController = function(app) {
 
 	function routes() {
@@ -8,9 +8,8 @@ var logsController = function(app) {
 	}
 
 	function getAction(req, res) {
-		res.json({});
+		res.json(Log.all());
 	}
-
 
 	routes();
 };
