@@ -17,8 +17,8 @@ app.set('views', __dirname + '/app/views');
 app.engine('html', require('ejs').renderFile); // render simple html
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'web')));
-app.set('root_folder', __dirname);
+app.use(require('connect-assets')({build: true}));
+app.use(express.static(__dirname + '/assets'));
 
 // Routes
 require('./app/routes')(app);
