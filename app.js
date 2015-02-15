@@ -1,6 +1,8 @@
 require('express-namespace');
 
-var app = module.exports = require('express')(),
+var express = require('express'),
+	app = module.exports = express(),
+	path = require('path'),
 	http = require('http').Server(app),
 	io = require('socket.io')(http);
 
@@ -15,6 +17,8 @@ app.set('views', __dirname + '/app/views');
 app.engine('html', require('ejs').renderFile); // render simple html
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'web')));
+app.set('root_folder', __dirname);
 
 // Routes
 require('./app/routes')(app);

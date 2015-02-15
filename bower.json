@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/kulturbande/LogObserver",
   "authors": [
-    "Sascha Karnatz <sascha@kulturbande.de>"
+    "Sascha Karnatz <sascha.kulturbande@gmail.com>"
   ],
   "description": "Observe and analyse logs",
   "main": "app.js",
@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "angular": "~1.3.13",
-	"bootstrap": "*",
-	"angular-socket-io": "*"
+    "bootstrap": "~3.3.2",
+    "angular-socket-io": "~0.7.0"
   }
 }
