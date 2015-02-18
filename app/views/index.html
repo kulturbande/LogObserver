@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="logObserver">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +8,8 @@
 	<link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-	<div class="container-fluid">
-
-		<div class="row">
-			<div class="col-xs-12">
-
-			</div>
-		</div>
-	</div>
-
-
-
+	<nav data-navigation-bar></nav>
+	<div ng-view></div>
 
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="assets/scripts.js"></script>
