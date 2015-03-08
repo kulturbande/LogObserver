@@ -1,7 +1,8 @@
 
 var app = angular.module('logObserver', [
 	'ngRoute',
-	'logObserver.commons'
+	'logObserver.commons',
+	'logObserver.logs'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
