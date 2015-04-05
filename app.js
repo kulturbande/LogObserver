@@ -14,8 +14,12 @@ if (app.get('env') === 'test') {
 
 // specify the express view
 app.set('views', __dirname + '/app/views');
-app.engine('html', require('ejs').renderFile); // render simple html
-app.set('view engine', 'ejs');
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+	layoutsDir: 'app/views/layouts',
+	defaultLayout: 'default'
+}));
+app.set('view engine', 'handlebars');
 
 app.use(require('connect-assets')({build: true}));
 app.use(express.static(__dirname + '/assets'));

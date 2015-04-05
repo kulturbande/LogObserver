@@ -8,7 +8,12 @@ var logsController = function(app) {
 	}
 
 	function getAction(req, res) {
-		res.json(Log.all());
+		if (req.is('json')) {
+			res.json(Log.all());
+		} else {
+			res.render('logs.html');
+		}
+
 	}
 
 	routes();

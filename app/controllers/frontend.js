@@ -6,7 +6,7 @@ var frontendController = function(app) {
 	}
 
 	function getAction(req, res) {
-		res.render('index.html');
+		res.render('index');
 	}
 
 	routes();
