@@ -15,10 +15,12 @@ if (app.get('env') === 'test') {
 // specify the express view
 app.set('views', __dirname + '/app/views');
 var exphbs = require('express-handlebars');
+
 app.engine('handlebars', exphbs({
 	layoutsDir: 'app/views/layouts',
 	partialsDir: 'app/views/partials',
-	defaultLayout: 'default'
+	defaultLayout: 'default',
+	helpers: require('./app/libs/helpers')
 }));
 app.set('view engine', 'handlebars');
 

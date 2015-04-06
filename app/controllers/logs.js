@@ -11,7 +11,9 @@ var logsController = function(app) {
 		if (req.is('json')) {
 			res.json(Log.all());
 		} else {
-			res.render('logs.html');
+			res.render('logs', {
+				logs: Log.all()
+			});
 		}
 
 	}
