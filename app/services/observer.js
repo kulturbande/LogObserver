@@ -3,12 +3,13 @@ var Tail = require('tail').Tail,
 
 var Observer = function(io) {
 
-	tail = new Tail('./tests/test_logs/test.log');
+	var tail = new Tail('./tests/test_logs/test.log'),
+			log = new Log('test', './tests/test_logs/test.log');
+			log.save();
 
 	tail.on("line", function(data) {
-		var log = new Log(data);
-		log.save();
-		io.emit('log', log);
+		var entry = log.addEntry(data);
+		io.emit('entry', entry);
 	});
 
 	io.on('connection', function(socket){
