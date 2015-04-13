@@ -4,7 +4,7 @@ var logsController = function(app) {
 	function routes() {
 			app.namespace('/logs', function() {
 					app.get('/', getLogs);
-					app.get('/:id', getLog(id));
+					app.get('/:id', getLog);
 			});
 	}
 
@@ -15,9 +15,9 @@ var logsController = function(app) {
 	}
 
 	function getLog(req, res) {
-			var id = req.params[0];
-			res.render('logs', {
-					logs: Log.find(id).getEnties();
+			var id = req.params.id;
+			res.render('log_entries', {
+					entries: Log.find(id).getEntries()
 			});
 	}
 

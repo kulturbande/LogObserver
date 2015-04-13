@@ -1,13 +1,19 @@
 var Log = (function() {
 		var collection = [];
+		var lastId = 1;
 
 		Log.all = function() {
 				return collection;
 		};
 
-		function Log(id, path) {
-				this.id = id;
+		Log.find = function(id) {
+				return typeof collection[id] == 'undefined' ? [] : collection[id];
+		};
+
+		function Log(name, path) {
+				this.id = lastId++;
 				this.path = path;
+				this.name = name;
 				this.entries = [];
 				return this;
 		}
@@ -26,10 +32,6 @@ var Log = (function() {
 
 		Log.prototype.save = function() {
 				collection[this.id] = this;
-		};
-
-		Log.prototype.find = function(id) {
-				return typeof collection[id] == 'undefined' ? null : collection[id];
 		};
 
 		return Log;
