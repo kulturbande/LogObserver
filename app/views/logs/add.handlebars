@@ -1,10 +1,12 @@
-<form class="pure-form">
+<form class="pure-form pure-form-stacked" action="/logs" method="POST">
     <fieldset>
-        <legend>A Stacked Form</legend>
+        <legend>Add new Log</legend>
 
-        <label for="file">Log</label>
-        <input id="file" name="file_handle" type="file" placeholder="Select File"> <i>or</i>
-        <input id="file_input" name="file_" type="text" placeholder="Select File">
+        <label for="name">Name</label>
+        <input id="name" name="log[name]" type="text" placeholder="Add name">
+
+        <label for="path">Path</label>
+        <input id="path" name="log[path]" type="text" placeholder="Add file path">
 
 
         <button type="submit" class="pure-button pure-button-primary">Save</button>

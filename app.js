@@ -4,7 +4,8 @@ var express = require('express'),
 	app = module.exports = express(),
 	path = require('path'),
 	http = require('http').Server(app),
-	io = require('socket.io')(http);
+	io = require('socket.io')(http),
+	bodyParser = require('body-parser');
 
 // set the port of web server
 app.set('port', process.env.PORT || 3000);
@@ -26,6 +27,8 @@ app.set('view engine', 'handlebars');
 
 app.use(require('connect-assets')({build: true}));
 app.use(express.static(__dirname + '/assets'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Routes
 require('./app/routes')(app);
