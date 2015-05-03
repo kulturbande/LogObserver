@@ -1,7 +1,8 @@
 var Log = require('../models/log');
 var _ = require('lodash');
 
-var logsController = function(app) {
+var logsController = function(app, io) {
+	var observer = require('./app/services/observer')(io);
 
 	function routes() {
 		app.namespace('/logs', function() {
@@ -19,8 +20,8 @@ var logsController = function(app) {
 	function createAction(req, res) {
 		var data = req.body.log;
 		var log = new Log(data);
-		if (!log.isValid()) {
-
+		if (log.save()) {
+			res.redirect('logs');
 		}
 		res.redirect('logs/add');
 	}

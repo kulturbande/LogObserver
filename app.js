@@ -31,7 +31,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Routes
-require('./app/routes')(app);
-require('./app/services/observer')(io);
+require('./app/routes')(app, io);
 
 http.listen(app.get('port'));

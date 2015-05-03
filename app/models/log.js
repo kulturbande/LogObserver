@@ -1,4 +1,6 @@
-var _ = require('lodash');
+var _ = require('lodash'),
+	validator = require('validator');
+
 var Log = (function() {
 	var collection = [];
 	var lastId = 1;
@@ -19,8 +21,6 @@ var Log = (function() {
 		return this;
 	}
 
-
-
 	Log.prototype.addEntry = function(message) {
 		var entry = {}
 		entry.date = new Date();
@@ -34,11 +34,15 @@ var Log = (function() {
 	};
 
 	Log.prototype.save = function() {
-		collection[this.id] = this;
+		if (this.isValid()) {
+			collection[this.id] = this;
+			return true;
+		}
+		return false;
 	};
 
 	Log.prototype.isValid = function() {
-		return !_.isEmpty(this.name) && !_.isEmpty(this.path);
+		return validator.isAlphanumeric(this.name) && validator.matches(this.path, /(\/\w+)+\.(\w{1,3})/i);
 	};
 
 	return Log;

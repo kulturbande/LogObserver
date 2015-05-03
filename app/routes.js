@@ -1,7 +1,7 @@
 
-var routes = function(app) {
-	frontend = require('./controllers/frontend')(app);
-	logs = require('./controllers/logs')(app);
+var routes = function(app, io) {
+	var frontend = require('./controllers/frontend')(app);
+	var logs = require('./controllers/logs')(app, io);
 };
 
 module.exports = routes;
